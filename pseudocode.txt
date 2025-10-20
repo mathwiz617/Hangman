@@ -1,0 +1,90 @@
+import java.util.ArrayList 
+import java.util.scanner
+import java.util.Random
+
+Main Class:
+
+	boolean go = True
+	Word word = new Word()
+	String file = ""
+	int strikes = 0
+	char[] goal
+	
+	do{
+		print(choose a difficulty: easy, medium, or hard)
+		difficulty = input
+		
+		if(difficulty = easy){
+			file = "easy.txt"
+		}
+		if(difficulty = medium){
+			file = "medium.txt"
+		}
+		if(difficulty = hard){
+			file = "hard.txt"
+		}
+		
+		load(file)
+		
+		chooseWord()
+		
+		goal = generateGoal()
+		
+		
+		
+	}while(go == True)
+	
+Word Class:
+
+	
+	private	ArrayList<String> wordList <- like an array, but resizable
+	private string word
+	private	char[] goal
+	
+	public Word(){
+		wordList = new ArrayList<>() <- empty ArrayList, to be filled with strings
+		word = ""
+	}
+	
+	public char[] getGoal(){
+		return goal
+	}
+	
+	public void setGoal(char[] letters){
+		goal = letters
+		return
+	}
+	
+	public String getWord(){
+		return goal
+	}
+	
+	public void setWord(String string){
+		word = string
+		return
+	}
+	
+	public ArrayList<String> getGoal(){
+		return wordList
+	}
+	
+	public void setGoal(ArrayList<String> list){
+		wordList = list
+		return
+	}
+	
+	public void load(String file){
+		(read file, each line becomes an entry in wordList)	
+		return
+	}
+	
+	public void chooseWord(){
+		int size = wordList.size()
+		int index = random.nextInt(size)
+		word = wordList.get(index)
+		return
+	}
+	
+	public generateGoal(){
+		goal = word.toCharArray();
+	}
