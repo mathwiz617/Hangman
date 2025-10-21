@@ -1,26 +1,29 @@
 import java.util.ArrayList 
 import java.util.scanner
 import java.util.Random
+import java.io.*
 
 Main Class:
 
-	boolean go = True
+	Scanner keyboard = new Scanner(System.in)
 	Word word = new Word()
+	String go = "yes"
 	String file = ""
+	String input = ""
 	int strikes = 0
 	char[] goal
 	
 	do{
 		print(choose a difficulty: easy, medium, or hard)
-		difficulty = input
+	 	input = keyboard.nextLine()
 		
-		if(difficulty = easy){
+		if(input = easy){
 			file = "easy.txt"
 		}
-		if(difficulty = medium){
+		if(input = medium){
 			file = "medium.txt"
 		}
-		if(difficulty = hard){
+		if(input = hard){
 			file = "hard.txt"
 		}
 		
@@ -32,7 +35,8 @@ Main Class:
 		
 		
 		
-	}while(go == True)
+		
+	}while(go != "no")
 	
 Word Class:
 
@@ -74,7 +78,14 @@ Word Class:
 	}
 	
 	public void load(String file){
-		(read file, each line becomes an entry in wordList)	
+		File loadFrom = new File(file)
+		Scanner inputFile = new Scanner(file)
+		
+		while(inputFile.hasNext()){
+			String nextWord = inputFile.nextLine()
+			wordList.add(nextWord.trim())
+		}
+		inputFile.close()
 		return
 	}
 	
