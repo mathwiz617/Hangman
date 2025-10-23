@@ -99,3 +99,28 @@ Word Class:
 	public generateGoal(){
 		goal = word.toCharArray();
 	}
+	
+Guess Class(String(char?)guess):
+	for (int i = 0; i < word.length(); i++) {
+		if (guess == i) {
+			print(i)
+		}
+		else {
+			print(_)
+			wrong++
+		}
+	if (wrong = 1) { determine how many wrong = hangman and finish loop 
+	print(display of 1 wrong)
+	
+	Guess Class (if someone enters "guess" they can guess a word and see if right):
+	print(What is your guess?)
+	wordGuess = scan.nextLine();
+	if (wordGuess.equals(word)) {
+		*win sequence*
+		}
+	else {
+		wrong++
+		}
+		
+	
+	
