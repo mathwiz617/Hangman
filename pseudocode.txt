@@ -111,14 +111,24 @@ Word Class:
 	}
 	
 Guess Class(String(char?)guess):
-	for (int i = 0; i < word.length(); i++) {
-		if (guess == i) {
-			print(i)
+	char[] lettersGuessedOld = new char[goal.length]
+	char[] lettersGuessedNew = new char[goal.length]
+	for (int i = 0; i <= goal.length; i++) {
+		lettersGuessedOld[i] = '_';
+		lettersGuessedNew[i] = '_';
+	for (int i = 0; i < goal.length; i++) {
+		if (guess == goal[i] {
+			lettersGuessedNew[i] = guess
 		}
-		else {
-			print(_)
-			wrong++
+	if (lettersGuessedOld.equals(lettersGuessedNew) {
+		wrong++
+		print(lettersGuessedOld)
 		}
+	else {
+	print(lettersGuessedNew)
+		for (int i = 0; i <= goal.length; i++) {
+		lettersGuessedOld[i] = lettersGuessedNew[i];
+	}
 	if (wrong = 1) { determine how many wrong = hangman and finish loop 
 	print(display of 1 wrong)
 	
