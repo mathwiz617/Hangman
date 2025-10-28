@@ -8,23 +8,34 @@ Main Class:
 	Scanner keyboard = new Scanner(System.in)
 	Word word = new Word()
 	String go = "yes"
-	String file = ""
 	String input = ""
 	int strikes = 0
 	char[] goal
 	
 	do{
-		print(choose a difficulty: easy, medium, or hard)
+		print(choose a difficulty: easy, medium, or hard: )
 	 	input = keyboard.nextLine()
 		
 		if(input = easy){
-			file = "easy.txt"
+			word.load("easy.txt");
+			word.chooseWord();	
+			goal = word.generateGoal();
+			System.out.print(goal);
+			System.out.println();
 		}
 		if(input = medium){
-			file = "medium.txt"
+			word.load("medium.txt");
+			word.chooseWord();	
+			goal = word.generateGoal();
+			System.out.print(goal);
+			System.out.println();
 		}
 		if(input = hard){
-			file = "hard.txt"
+			word.load("hard.txt");
+			word.chooseWord();	
+			goal = word.generateGoal();
+			System.out.print(goal);
+			System.out.println();
 		}
 		
 		load(file)
@@ -33,14 +44,13 @@ Main Class:
 		
 		goal = generateGoal()
 		
+		print(Play again? Yes to play again: )
 		
 		
-		
-	}while(go != "no")
+	}while(go = "yes")
 	
 Word Class:
 
-	
 	private	ArrayList<String> wordList <- like an array, but resizable
 	private string word
 	private	char[] goal
