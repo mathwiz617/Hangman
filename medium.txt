@@ -1,1 +1,10 @@
-diamond
+python
+bumblebee
+unicorn
+octopus
+elephant
+jigsaw
+falcon
+carousel
+rollercoaster
+caterpillar
