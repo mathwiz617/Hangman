@@ -9,38 +9,42 @@ public class Game {
 		Scanner keyboard = new Scanner(System.in);
 		Word word = new Word();
 		String go = "yes";
-		String input;
-		int strikes = 0;
+		String input = "y";
+		Guess guess;
 		char[] goal;
 		
 		do{
-			System.out.print("Choose a difficulty: easy, medium, or hard: ");
-		 	input = keyboard.next();
+			while(input.equalsIgnoreCase("y")) {
+				System.out.print("Choose a difficulty: easy, medium, or hard: ");
+				input = keyboard.next();
 			
-			if(input.equalsIgnoreCase("easy")){				
-				word.load("easy.txt");
-				word.chooseWord();	
+				switch(input) {
+				case "easy":
+					word.load("easy.txt");
+					word.chooseWord();	
+					break;
+				case "medium":
+					word.load("medium.txt");
+					word.chooseWord();	
+					break;
+				case "hard":
+					word.load("hard.txt");
+					word.chooseWord();	
+					break;
+				default:
+					System.out.println("That's not a valid input!");
+				 	break;
+				
+				
+				}
 				goal = word.generateGoal();
 				System.out.print(goal);
 				System.out.println();
+				guess = new Guess(goal);
+				guess.start();
 			}
-			else if(input.equalsIgnoreCase("medium")){				
-				word.load("medium.txt");
-				word.chooseWord();	
-				goal = word.generateGoal();
-				System.out.print(goal);
-				System.out.println();
-			}
-			else if(input.equalsIgnoreCase("hard")){				
-				word.load("hard.txt");
-				word.chooseWord();	
-				goal = word.generateGoal();
-				System.out.print(goal);
-				System.out.println();
-			}
-			else {
-				System.out.println("That's not a valid input!");
-			}
+
+			input = "y";
 			
 			System.out.print("Play again? Enter 'yes' to play again: ");
 			go = keyboard.next();
