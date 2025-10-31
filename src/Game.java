@@ -50,7 +50,8 @@ public class Game {
 			go = keyboard.next();
 			
 		}while(go.equalsIgnoreCase("yes"));
-		
+		System.out.println("Enter your guess: ");
+		char letter = keyboard.next().charAt(0);
 		keyboard.close();
 		System.exit(0);
 
