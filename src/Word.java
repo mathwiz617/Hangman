@@ -63,6 +63,7 @@ public class Word{
 	}
 	
 	public char[] generateGoal(){
+		word = word.toLowerCase();
 		goal = word.toCharArray();
 		return goal;
 	}
