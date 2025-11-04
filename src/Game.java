@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 import java.io.*;
 
 public class Game {
@@ -43,7 +41,23 @@ public class Game {
 				System.out.println();
 				guess = new Guess(goal);
 				guess.start();
+				
+				do {
+					System.out.println("Enter your guess: ");
+					char letter = keyboard.next().charAt(0);
+					keyboard.nextLine();
+					if (letter == '!') {
+						System.out.print("Enter your guess: ");
+						String wordGuessed = keyboard.nextLine();
+						guess.wordGuess(wordGuessed);
+					}
+					else {
+						guess.letterGuess(letter);
+					}
+				}while(!guess.isLoss() && !guess.isWin());
 			}
+			
+			
 
 			input = "y";
 			
@@ -51,12 +65,7 @@ public class Game {
 			go = keyboard.next();
 			
 		}while(go.equalsIgnoreCase("yes"));
-		System.out.println("Enter your guess: ");
-		char letter = keyboard.next().charAt(0);
-		if (letter == '!') {
-			System.out.print("Enter your guess: ");
-			String wordGuessed = keyboard.nextLine();
-		}
+		
 		keyboard.close();
 		System.exit(0);
 
