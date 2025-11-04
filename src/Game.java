@@ -11,6 +11,7 @@ public class Game {
 		String go = "yes";
 		String input = "y";
 		Guess guess;
+		
 		char[] goal;
 		
 		do{
@@ -52,6 +53,10 @@ public class Game {
 		}while(go.equalsIgnoreCase("yes"));
 		System.out.println("Enter your guess: ");
 		char letter = keyboard.next().charAt(0);
+		if (letter == '!') {
+			System.out.print("Enter your guess: ");
+			String wordGuessed = keyboard.nextLine();
+		}
 		keyboard.close();
 		System.exit(0);
 

@@ -3,9 +3,10 @@ public class Guess {
 
 	private char[] goal;
 	private char letterGuessed = ' ';
+	private String wordGuessedString = "";
+	private char[] wordGuessed;
 	private char[] lettersGuessedOld;
 	private char[] lettersGuessedNew;
-	private String[] hangedMan;
 	int wrong = 0;
 
 	
@@ -23,6 +24,17 @@ public class Guess {
 
 	public void setLetterGuessed(char letterGuessed) {
 		this.letterGuessed = letterGuessed;
+	}
+	public Guess(String word) {
+		wordGuessedString = word;
+	}
+	
+	public String getWordGuessed() {
+		return wordGuessedString;
+	}
+
+	public void setWordGuessed(String wordGuessedString) {
+		this.wordGuessedString = wordGuessedString;
 	}
 
 	public char[] getLettersGuessedOld() {
@@ -49,6 +61,7 @@ public class Guess {
 			lettersGuessedOld[i] = '_';
 			lettersGuessedNew[i] = '_';
 		}
+			
 		for (int i = 0; i < goal.length; i++) {
 			if (letterGuessed == goal[i]) {
 				lettersGuessedNew[i] = letterGuessed;
@@ -60,10 +73,19 @@ public class Guess {
 			}
 		else {
 			System.out.println(lettersGuessedNew);
-			for (int i = 0; i <= goal.length; i++) {
+			for (int i = 0; i < goal.length; i++) {
 				lettersGuessedOld[i] = lettersGuessedNew[i];
 		}
 		}
+		wordGuessed = new char[wordGuessedString.length()];
+		for (int i = 0; i < wordGuessed.length; i++) {
+			wordGuessed[i] = wordGuessedString.charAt(i);
+		}
+		if (wordGuessed.equals(goal)) {
+			System.out.println("You guessed correctly!");
+		}
+	}
+	public void wrong() {
 		if (wrong == 0) {
 			System.out.println(" +---+\r\n"
 					+ "  |   |\r\n"
