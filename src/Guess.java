@@ -2,28 +2,16 @@ import java.util.Arrays;
 
 public class Guess {
 	//initialize variables used in guessing process
-	private char[] goal; //word to guess
-	private char letterGuessed = ' '; //letter guessed by user
-	private String wordGuessedString = ""; //word guessed by user
-	private char[] wordGuessed; //word guessed as an array
-	private char[] lettersGuessedOld; // keep track of accurate guesses
-	private char[] lettersGuessedNew; // array to compare 
-	int wrong = 0; //how many wrong guesses from user
-
-<<<<<<< Updated upstream
 	private char[] goal;
 	private char letterGuessed = ' ';
 	private String wordGuessedString = "";
 	private char[] lettersGuessedOld;
 	private char[] lettersGuessedNew;
-	private int wrong = 0;
+	private int wrong = 0; //how many wrong guesses from user
 	private boolean win = false;
 	private boolean loss = false;
 
 	
-=======
-	//constructor to for hangman word
->>>>>>> Stashed changes
 	public Guess(char[] word) {
 		goal = word;
 	}
@@ -42,7 +30,7 @@ public class Guess {
 		this.letterGuessed = letterGuessed;
 	}
 	
-	//construuctor for guessing word
+	//constructor for guessing word
 	public Guess(String word) {
 		wordGuessedString = word;
 	}
@@ -73,7 +61,6 @@ public class Guess {
 		this.lettersGuessedNew = lettersGuessedNew;
 	}
 	
-<<<<<<< Updated upstream
 	public int getWrong() {
 		return wrong;
 	}
@@ -93,10 +80,8 @@ public class Guess {
 	public void setLoss(boolean loss) {
 		this.loss = loss;
 	}
-
-=======
-	//method after starting game
->>>>>>> Stashed changes
+	
+	//method to start game
 	public void start() {
 		//create the letters guessed displays the size of goal word
 		lettersGuessedOld = new char[goal.length];
@@ -109,31 +94,19 @@ public class Guess {
 		}
 	}
 			
-<<<<<<< Updated upstream
 	public void letterGuess(char a) {
+		//check array for accurate guesses and place them in guessed array
 		for (int i = 0; i < goal.length; i++) {
 			if (a == goal[i]) {
 				lettersGuessedNew[i] = a;
 			}
 		}
+		//check if the new updated array has a correct guess that the old doesn't
 		if (Arrays.equals(lettersGuessedOld, lettersGuessedNew)) {
-			wrong++;
+			wrong++; //add to wrong guess
 			System.out.println("That letter is not in this word!");
-=======
-		//check each index if the letter guessed is in the goal word and replace blank
-		for (int i = 0; i < goal.length; i++) {
-			if (letterGuessed == goal[i]) {
-				lettersGuessedNew[i] = letterGuessed; //array track accurate guesses
-			}
-		}
-		
-		//compare arrays to see if they got a guess wrong
-		if (lettersGuessedOld.equals(lettersGuessedNew)) {
-			wrong++; //track wrong
->>>>>>> Stashed changes
-			System.out.println(lettersGuessedOld);
 			wrong();
-			}
+		}
 		else { //got it right
 			System.out.println(lettersGuessedNew);
 			//reset arrays for future guesses
@@ -142,18 +115,16 @@ public class Guess {
 			}
 		}
 	}
-	
+
+	//method for guessing a word
 	public void wordGuess(String word){
-		String goalString = new String(goal);
-		/*wordGuessed = new char[wordGuessedString.length()];
-		for (int i = 0; i < wordGuessed.length; i++) {
-			wordGuessed[i] = wordGuessedString.charAt(i);
-		}*/
-		if (word.equals(goalString)) {
+		String goalString = new String(goal); //create array for guessed word
+		
+		if (word.equals(goalString)) { //check for guessed word and win
 			System.out.println("You guessed correctly!");
 			win = true;
 		}
-		else {
+		else { //wrong word, add to wrong guesses
 			wrong++;
 			System.out.println("You guessed wrong.");
 			System.out.println(lettersGuessedOld);
@@ -161,7 +132,8 @@ public class Guess {
 		}
 	}
 	
-	public void wrong() {
+	public void wrong() { //wrong method for wrong answers
+		//track wrongs and display progress
 		if (wrong == 0) {
 			System.out.println(" +---+\r\n"
 					+ "  |   |\r\n"
@@ -216,6 +188,7 @@ public class Guess {
 					+ "      |\r\n"
 					+ "=========");
 		}
+		//loss
 		else {
 			System.out.println("  +---+\r\n"
 					+ "  |   |\r\n"
