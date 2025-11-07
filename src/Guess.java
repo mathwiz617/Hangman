@@ -107,10 +107,6 @@ public class Guess {
 	
 	public void wordGuess(String word){
 		String goalString = new String(goal);
-		/*wordGuessed = new char[wordGuessedString.length()];
-		for (int i = 0; i < wordGuessed.length; i++) {
-			wordGuessed[i] = wordGuessedString.charAt(i);
-		}*/
 		if (word.equals(goalString)) {
 			System.out.println("You guessed correctly!");
 			win = true;
