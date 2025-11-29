@@ -11,7 +11,7 @@ public class Guess {
 	private boolean win = false;
 	private boolean loss = false;
 
-	
+	//noargs constructor
 	public Guess(char[] word) {
 		goal = word;
 	}
@@ -48,7 +48,7 @@ public class Guess {
 	public char[] getLettersGuessedOld() {
 		return lettersGuessedOld;
 	}
-	//set
+	//setter, should never be used, but here just in case
 	public void setLettersGuessedOld(char[] lettersGuessedOld) {
 		this.lettersGuessedOld = lettersGuessedOld;
 	}
@@ -56,27 +56,32 @@ public class Guess {
 	public char[] getLettersGuessedNew() {
 		return lettersGuessedNew;
 	}
-	//set
+	//setter, should never be used, but here just in case
 	public void setLettersGuessedNew(char[] lettersGuessedNew) {
 		this.lettersGuessedNew = lettersGuessedNew;
 	}
 	
+	//getter, should never be used, but here just in case
 	public int getWrong() {
 		return wrong;
 	}
 	
+	//win condition check
 	public boolean isWin() {
 		return win;
 	}
 
+	//setter, should never be used, but here just in case
 	public void setWin(boolean win) {
 		this.win = win;
 	}
 
+	//loss condition check
 	public boolean isLoss() {
 		return loss;
 	}
 
+	//setter, should never be used, but here just in case
 	public void setLoss(boolean loss) {
 		this.loss = loss;
 	}
@@ -197,6 +202,7 @@ public class Guess {
 					+ " / \\  |\r\n"
 					+ "      |\r\n"
 					+ "=========");
+			System.out.println("You lose...");
 			
 			loss = true;
 		}
